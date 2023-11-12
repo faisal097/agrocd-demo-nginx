@@ -1,0 +1,17 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx-svc
+  labels:
+    app: nginx
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    nodePort: 32080
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nginx
